@@ -52,7 +52,7 @@
                   <?php endif ?>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                  <li <?=echoActiveClassIfRequestMatches("login-register-logout")?>>
+                  <li>
                       <?php if(isset($_SESSION['user_id'])): ?>
                       <a href='?controller=user&action=logout'>Logout</a>
                       <?php else: ?>
