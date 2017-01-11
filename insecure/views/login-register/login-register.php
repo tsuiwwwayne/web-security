@@ -5,9 +5,9 @@
             <div class="panel-heading text-center">
                <label id="login-title">Login</label>
             </div>
-            <div class="col-sm-12 text-center margin-20"><label class="text-danger"><?php echo $errorMessage ?></label></div>
+            <div class="col-sm-12 text-center margin-top-20 margin-bottom-20"><label class="text-danger"><?php echo $errorMessage ?></label></div>
             <form class="form-horizontal" id="form" method="post" action="?controller=user&action=login">
-               <div class="panel-body margin-20">
+               <div class="panel-body">
                   <!-- USERNAME -->
                   <div class="form-group">
                      <div class="row">

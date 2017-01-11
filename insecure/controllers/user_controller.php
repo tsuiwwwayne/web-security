@@ -16,6 +16,16 @@
 
       $username = $_REQUEST['username'];
       $password = $_REQUEST['password'];
+      if ($username == "") {
+          $errorMessage = "Please enter your username";
+          require_once('views/login-register/login-register.php');
+          return;
+      }
+      if ($password == "") {
+          $errorMessage = "Please enter your password";
+          require_once('views/login-register/login-register.php');
+          return;
+      }
 
       $user = User::login($username, $password);
       if ($user) {
@@ -24,7 +34,7 @@
         require_once('utilities.php');
         Utilities::redirect("?");
       } else {
-        $errorMessage = "Login failed. Something went wrong...";
+        $errorMessage = "Wrong Username or Password";
         require_once('views/login-register/login-register.php');
       }
     }
@@ -49,9 +59,10 @@
       if (WEB_SAFE) {
         // Enforce that username is alphanumeric.
         if (!ctype_alnum($username)) {
-          return call('pages', 'error');
+            $errorMessage = "Only alphanumeric characters allowed for Username";
+            require_once('views/login-register/login-register.php');
         }
-        
+
         // Enforce no special characters in display name.
         $displayname = htmlspecialchars($displayname);
       }
