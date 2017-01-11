@@ -48,6 +48,7 @@
               </div>
             </div>
           </nav>
+      </div>
     </div>
     <div class="container">
       <?php require_once('routes.php'); ?>

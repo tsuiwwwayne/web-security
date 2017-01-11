@@ -5,25 +5,13 @@
         <div class="form-group">
           <label class="control-label col-sm-2" for="email">UserID:</label>
           <div class="col-sm-10">
-            <label class="control-label for="email">lmy6088</label>
+            <label class="control-label for="email"><?php echo $username ?></label>
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-2" for="pwd">Username:</label>
+          <label class="control-label col-sm-2" for="pwd">Display Name:</label>
           <div class="col-sm-10"> 
-            <input type="text" class="form-control" id="username" placeholder="Username">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="pwd">Old Password:</label>
-          <div class="col-sm-10"> 
-            <input type="password" class="form-control" id="old_pwd" placeholder="Old Password">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="pwd">New Password:</label>
-          <div class="col-sm-10"> 
-            <input type="password" class="form-control" id="new_pwd" placeholder="New Password">
+            <input type="text" class="form-control" id="display_name" placeholder="Display Name">
           </div>
         </div>
         <div class="form-group">
