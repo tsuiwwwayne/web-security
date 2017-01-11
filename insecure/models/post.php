@@ -51,7 +51,7 @@
 
       return new Post($post['id'], $post['user_id'], $post['content']);
     }
-    
+
     public static function add($userID, $content) {
         // todo: Set date created
         $db = Db::getInstance();
@@ -63,7 +63,7 @@
     // Deletes a post
     public static function remove($postID) {
       $db = Db::getInstance();
-      
+
     }
   }
 ?>

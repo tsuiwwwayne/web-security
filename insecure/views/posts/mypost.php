@@ -1,6 +1,6 @@
 <div class="container below-static-navbar padding-top-20">
     <div class="panel panel-default">
-      <div class="panel-heading">All your current snippets</div>
+      <div class="panel-heading text-center">All your snippets</div>
       <div class="panel-body">
           <?php
             if(empty($posts)){
