@@ -20,6 +20,14 @@
       $icon = $_POST["icon"];
       $homepage = $_POST["homepage"];
       $profile_colour = $_POST["profile_colour"];
+      
+      // Clean inputs for web safe mode
+      if(WEB_SAFE){
+        $displayName = htmlspecialchars($_POST["display_name"]);
+        $icon = htmlspecialchars($_POST["icon"]);
+        $homepage = htmlspecialchars($_POST["homepage"]);
+        $profile_colour = htmlspecialchars($_POST["profile_colour"]);
+      }
 
       Profile::updateProfile($user_id, $displayName, $icon, $homepage, $profile_colour);
 

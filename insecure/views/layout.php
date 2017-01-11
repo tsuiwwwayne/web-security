@@ -40,7 +40,7 @@
                 <ul class="nav navbar-nav">
                   <?php if(isset($_SESSION['user_id'])): ?>
                   <li><a href="?controller=posts&action=myPosts">My Posts</a></li>
-                  <li><a href="#add-post">Add Post</a></li>
+                  <li><a href="?controller=posts&action=addPostIndex">Add Post</a></li>
                   <li><a href="?controller=profile&action=index">Profile</a></li>
                   <li><a href="?controller=upload&action=index">Upload</a></li>
                   <?php else: ?>
