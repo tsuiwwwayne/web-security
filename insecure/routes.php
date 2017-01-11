@@ -23,9 +23,6 @@
         require_once('models/profile.php');
         $controller = new ProfileController();
         break;
-      case 'login_register':
-        $controller = new LoginRegisterController();
-      break;
       case 'upload':
         $controller = new UploadController();
       break;
@@ -38,8 +35,7 @@
   $controllers = array('pages' => ['home', 'error'],
                        'posts' => ['index', 'show', 'add', 'myPosts'],
                        'profile' => ['index', 'updateProfile'],
-                       'user' =>  ['login', 'logout', 'updateProfile'],
-                       'login_register' => ['index'],
+                       'user' =>  ['index', 'login', 'logout', 'updateProfile'],
                        'upload' =>  ['index', 'uploadfile']);
 
   // Controllers in this array require that a valid user session be present (i.e. $_SESSION['user_id'] exists)

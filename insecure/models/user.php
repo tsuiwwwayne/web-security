@@ -59,10 +59,18 @@
         $req->execute(array($username, $password, $displayname));
     }
 
-    // TODO.
-    // Returns a Profile object.
-    public static function getProfile($userID) {
+    public static function allUserIDs() {
+        $list = [];
+        $db = Db::getInstance();
+        $req = $db->query('SELECT users.id FROM users');
 
+        // we create a list of User ids from the database results
+        foreach ($req->fetchAll() as $user) {
+          $list[] = $user['id'];
+        }
+
+        return $list;
     }
+
   }
 ?>

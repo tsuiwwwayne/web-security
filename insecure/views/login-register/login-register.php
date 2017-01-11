@@ -5,6 +5,7 @@
             <div class="panel-heading text-center">
                <label id="login-title">Login</label>
             </div>
+            <div class="col-sm-12 text-center margin-20"><label class="text-danger"><?php echo $errorMessage ?></label></div>
             <form class="form-horizontal" id="form" method="post" action="?controller=user&action=login">
                <div class="panel-body margin-20">
                   <!-- USERNAME -->
@@ -46,9 +47,8 @@
                         </div>
                      </div>
                   </div>
-                  <div class="col-sm-12" style="text-align: center"><label class="text-danger">Error Msg</label></div>
                </div>
-               <div class="panel-footer text-center">
+               <div class="panel-footer text-center" style="margin-bottom:-15px">
                   <button id="login-btn" type="submit" class="btn btn-primary padding-left-20 padding-right-20">Login</button>
                </div>
             </form>

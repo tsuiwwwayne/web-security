@@ -40,6 +40,19 @@
       return $list;
     }
 
+    public static function getPostLastForUser($user_id) {
+        $list = [];
+        $db = Db::getInstance();
+        $user_id = intval($user_id);
+        $req = $db->query('SELECT * FROM posts ORDER BY date_created DESC LIMIT 1');
+        $post = $req->fetch();
+        if ($post && count($post) > 0) {
+           return new Post($post['id'], $post['user_id'], $post['content']);
+        } else {
+           return false;
+        }
+    }
+
     public static function find($id) {
       $db = Db::getInstance();
       // we make sure $id is an integer

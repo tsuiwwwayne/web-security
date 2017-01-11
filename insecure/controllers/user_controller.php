@@ -1,5 +1,11 @@
 <?php
   class UserController {
+
+    public function index() {
+        $errorMessage = "";
+        require_once('views/login-register/login-register.php');
+    }
+
     // Input:
     // user, password
     public function login() {
@@ -14,16 +20,12 @@
       $user = User::login($username, $password);
       if ($user) {
         $_SESSION['user_id'] = $user->id;
-        //echo "ELLO " . User::getDisplayName($user->id) . "!";
-        //return call('pages', 'home');
         // Redirect
         require_once('utilities.php');
         Utilities::redirect("?");
       } else {
-        $output = "LOGIN FAIL";
-        echo "LOGIN FAIL";
-        //self::logout();
-        return call('pages', 'error');
+        $errorMessage = "Login failed. Something went wrong...";
+        require_once('views/login-register/login-register.php');
       }
     }
 

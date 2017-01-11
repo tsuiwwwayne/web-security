@@ -14,7 +14,7 @@
         <div class="carousel-caption">
           <h1>UCL Group E</h1>
           <p>Team project investigating the vulnerabilities of web security, using HTML, CSS, JavaScript and PHP.</p>
-          <p><a class="btn btn-lg btn-primary" href="https://github.com/tsuiwwwayne/web-security" role="button">Github</a></p>
+          <p><a class="btn btn-lg btn-default" href="https://github.com/tsuiwwwayne/web-security" role="button">GitHub</a></p>
         </div>
       </div>
     </div>
@@ -72,21 +72,19 @@
 
 <div class="container marketing">
   <div class="row">
-    <div class="col-xs-6 col-md-4">
-      <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-      <h2>Heading</h2>
-      <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-    </div>
-
     <?php
-      if(!empty($posts)){
-        foreach($posts as $post) {
-          echo '<div class = "row" style="padding:10px,0,10px,0;"><div class="col-md-10">'. $post->id . ' ' . $post->content . '</div>' . '<div class="col-md-2" style="text-align:right"><a href="#" style="pull-right" class="btn btn-primary"><span class="glyphicon glyphicon-trash"></span></a></div></div><hr>';
+      if(!empty($listings)) {
+        foreach($listings as $listing) {
+            echo
+            '<div class="col-xs-6 col-md-4">
+              <img class="img-circle" src="' . $listing->icon .'" alt="Generic placeholder image" width="140" height="140">
+              <h2>' . $listing->displayname . '</h2>
+              <p>' . $listing->latestPost . '</p>
+              <p><a class="btn btn-default" href="' . $listing->homepage .'" role="button">Homepage &raquo;</a></p>
+            </div>';
         }
       }
     ?>
-
   </div><!-- /.row -->
 
 </div><!-- /.container -->

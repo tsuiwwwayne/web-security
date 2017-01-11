@@ -51,7 +51,7 @@
                       <?php if(isset($_SESSION['user_id'])): ?>
                       <a href='?controller=user&action=logout'>Logout</a>
                       <?php else: ?>
-                      <a href='?controller=login_register&action=index'>Login/Register</a>
+                      <a href='?controller=user&action=index'>Login/Register</a>
                       <?php endif ?>
                   </li>
                 </ul>
