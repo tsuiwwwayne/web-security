@@ -26,6 +26,20 @@
     }
 
     // Gets a single post
+    public static function getPostsForUser($user_id) {
+      $list = [];
+      $db = Db::getInstance();
+      $user_id = intval($user_id);
+      $req = $db->prepare('SELECT * FROM posts where user_id = :user_id');
+      $req->execute(array('user_id' => $user_id));
+      // we create a list of Post objects from the database results
+      foreach($req->fetchAll() as $post) {
+        $list[] = new Post($post['id'], $post['user_id'], $post['content']);
+      }
+
+      return $list;
+    }
+
     public static function find($id) {
       $db = Db::getInstance();
       // we make sure $id is an integer

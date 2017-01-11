@@ -6,6 +6,11 @@
       require_once('views/posts/index.php');
     }
 
+    public function myPosts() {
+      $posts = Post::getPostsForUser(1);
+      require_once('views/posts/mypost.php');
+    }
+
     public function show() {
       // we expect a url of form ?controller=posts&action=show&id=x
       // without an id we just redirect to the error page as we need the post id to find it in the database
