@@ -28,7 +28,11 @@
             $req->execute(array('id' => $id));
             $user = $req->fetch();
             $profile = new Profile($user['id'], $user['username'], $user['display_name'], $user['icon'], $user['home_page'], $user['profile_color']);
+<<<<<<< HEAD
             return $profile;
+=======
+            return $profile;
+>>>>>>> bac6502489c80d095f42037d56b50e2df7373e1a
         }
 
         public static function updateProfile($id, $displayname, $icon, $homepage, $profileColor){
@@ -38,6 +42,7 @@
             $req = $db->prepare('UPDATE users SET display_name = ?, icon = ?, home_page = ?, profile_color = ? WHERE id = ?');
             $req->execute(array($displayname, $icon, $homepage, $profileColor, $id));
         }
+<<<<<<< HEAD
 
         public static function allProfiles() {
             $list = [];
@@ -51,3 +56,8 @@
     }
 
 ?>
+=======
+    }
+
+?>
+>>>>>>> bac6502489c80d095f42037d56b50e2df7373e1a
