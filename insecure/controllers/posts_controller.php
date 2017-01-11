@@ -35,7 +35,13 @@
       if (!isset($user_id) || !isset($_REQUEST['content'])) {
         return call('pages', 'error');
       }
+      
       $content = $_REQUEST['content'];
+
+      // Sanitize incoming content.
+      if (WEB_SAFE) {
+        $content = htmlspecialchars($content);
+      }
 
       $success = Post::add($user_id, $content);
     }
