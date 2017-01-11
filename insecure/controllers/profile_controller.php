@@ -9,20 +9,18 @@
       $profile = Profile::getProfile($_SESSION['user_id']);
       require_once('views/profile/index.php');
     }
-
     public function updateProfile(){
       if (!isset($_SESSION['user_id'])) {
           return call('pages', 'error');
       }
       require_once('models/profile.php');
       //$username = User::getUserName($_SESSION['user_id']);
-
       $user_id = $_SESSION['user_id'];
       $displayName = $_POST["display_name"];
       $icon = $_POST["icon"];
       $homepage = $_POST["homepage"];
       $profile_colour = $_POST["profile_colour"];
-
+      
       // Clean inputs for web safe mode
       if(WEB_SAFE){
         $displayName = htmlspecialchars($_POST["display_name"]);

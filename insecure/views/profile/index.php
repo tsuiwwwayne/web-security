@@ -32,7 +32,7 @@
         <div class="form-group">
           <label class="control-label col-sm-2" for="pwd">Profile Color:</label>
           <div class="col-sm-10"> 
-            <input type="text" class="form-control" name="profile_colour" value="<?php echo $profile->profileColor ?>">
+            <input type="text" class="form-control" name="profile_colour" placeholder="<?php echo $profile->profileColor ?>">
           </div>
         </div>
         <div class="form-group"> 
