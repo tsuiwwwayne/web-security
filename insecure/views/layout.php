@@ -11,15 +11,21 @@
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    
+
+    <!-- Custom theme -->
+    <link href="bootstrap-3.3.7-dist/css/theme.css" rel="stylesheet" type="text/css">
+
     <!-- Custom styles for home page-->
     <link href="bootstrap-3.3.7-dist/css/carousel.css" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this login and register page -->
     <link href="bootstrap-3.3.7-dist/css/login-register.css" rel="stylesheet" type="text/css">
 
+    <!-- Custom styles for this login and register page -->
+    <link href="bootstrap-3.3.7-dist/css/the-big-picture.css" rel="stylesheet" type="text/css">
+
   </head>
-  <body>
+  <body class="background-full">
       <div class="navbar-wrapper">
         <div class="container">
 
@@ -32,17 +38,27 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Strange Security</a>
+                <a href="?" class="navbar-brand">Strange Security</a>
               </div>
               <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                  <li class="active"><a href="#">Home</a></li>
+                  <li><a href="?">Home</a></li>
+                  <?php if(isset($_SESSION['user_id'])): ?>
                   <li><a href="#my-posts">My Posts</a></li>
                   <li><a href="#add-post">Add Post</a></li>
                   <li><a href="#upload">Upload</a></li>
+                  <?php else: ?>
+                  <!-- empty -->
+                  <?php endif ?>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href='?controller=login_register&action=index'>Login/Register</a></li>
+                  <li <?=echoActiveClassIfRequestMatches("login-register-logout")?>>
+                      <?php if(isset($_SESSION['user_id'])): ?>
+                      <a href='?controller=user&action=logout'>Logout</a>
+                      <?php else: ?>
+                      <a href='?controller=login_register&action=index'>Login/Register</a>
+                      <?php endif ?>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -51,11 +67,6 @@
         </div>
       </div>
 
-    <header>
-      <a href='?'>Home</a>
-      <a href='?controller=posts&action=index'>Posts</a>
-    </header>
-
     <?php require_once('routes.php'); ?>
 
     <!-- FOOTER -->
@@ -63,14 +74,14 @@
         <hr class="featurette-divider">
         <div class="container">
             <p class="pull-right"><a href="#">Back to top</a></p>
-            <p>&copy; 2017 Strange, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+            <p>&copy; 2017 Strange, Inc.</p>
         </div>
     </footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
   </body>
 </html>
