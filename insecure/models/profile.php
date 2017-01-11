@@ -1,5 +1,5 @@
 <?php
-    class Profile{
+    class Profile {
         public $id;
         public $username;
         //public $password;
@@ -28,7 +28,7 @@
             $req->execute(array('id' => $id));
             $user = $req->fetch();
             $profile = new Profile($user['id'], $user['username'], $user['display_name'], $user['icon'], $user['home_page'], $user['profile_color']);
-            return $profile; 
+            return $profile;
         }
 
         public static function updateProfile($id, $displayname, $icon, $homepage, $profileColor){
@@ -37,6 +37,16 @@
             $id = intval($id);
             $req = $db->prepare('UPDATE users SET display_name = ?, icon = ?, home_page = ?, profile_color = ? WHERE id = ?');
             $req->execute(array($displayname, $icon, $homepage, $profileColor, $id));
+        }
+
+        public static function allProfiles() {
+            $list = [];
+            $userIDs = User::allUserIDs();
+            foreach ($userIDs as $userID) {
+                $list[] = self::getProfile($userID);
+            }
+
+            return $list;
         }
     }
 

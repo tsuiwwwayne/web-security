@@ -1,0 +1,93 @@
+.below-static-navbar {
+    margin-top: 70px;
+}
+
+.background-full {
+  background: url("../../assets/img/white-construction-paper-texture.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* Margin and Padding */
+
+.margin-10 {
+    margin: 10px;
+}
+
+.margin-top-10 {
+    margin-top: 10px;
+}
+
+.margin-right-10 {
+    margin-right: 10px;
+}
+
+.margin-bottom-10 {
+    margin-bottom: 10px;
+}
+
+.margin-left-10 {
+    margin-left: 10px;
+}
+
+.margin-20 {
+    margin: 20px;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
+}
+
+.margin-right-20 {
+    margin-right: 20px;
+}
+
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}
+
+.margin-left-20 {
+    margin-left: 20px;
+}
+
+.padding {
+    padding: 10px;
+}
+
+.padding-top-10 {
+    padding-top: 10px;
+}
+
+.padding-right-10 {
+    padding-right: 10px;
+}
+
+.padding-bottom-10 {
+    padding-bottom: 10px;
+}
+
+.padding-left-10 {
+    padding-left: 10px;
+}
+
+.padding-20 {
+    padding: 20px;
+}
+
+.padding-top-20 {
+    padding-top: 20px;
+}
+
+.padding-right-20 {
+    padding-right: 20px;
+}
+
+.padding-bottom-20 {
+    padding-bottom: 20px;
+}
+
+.padding-left-20 {
+    padding-left: 20px;
+}
