@@ -46,7 +46,7 @@
       if (!isset($user_id) || !isset($_REQUEST['content'])) {
         return call('pages', 'error');
       }
-      
+
       $content = $_REQUEST['content'];
 
       // Sanitize incoming content.

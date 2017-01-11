@@ -11,18 +11,20 @@
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    
+
+    <!-- Custom theme -->
+    <link href="bootstrap-3.3.7-dist/css/theme.css" rel="stylesheet" type="text/css">
+
     <!-- Custom styles for home page-->
     <link href="bootstrap-3.3.7-dist/css/carousel.css" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this login and register page -->
     <link href="bootstrap-3.3.7-dist/css/login-register.css" rel="stylesheet" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
   </head>
-  <body style="padding-top: 70px;">
-    <div class="navbar-wrapper">
-      <div class="container">
+  <body class="background-full">
+      <div class="navbar-wrapper">
+        <div class="container">
           <nav class="navbar navbar-inverse navbar-static-top">
             <div class="container">
               <div class="navbar-header">
@@ -32,35 +34,32 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Strange Security</a>
+                <a href="?" class="navbar-brand">Strange Security</a>
               </div>
               <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                  <li class="active"><a href="#">Home</a></li>
+                  <?php if(isset($_SESSION['user_id'])): ?>
                   <li><a href="?controller=posts&action=myPosts">My Posts</a></li>
                   <li><a href="?controller=posts&action=addPostIndex">Add Post</a></li>
                   <li><a href="?controller=profile&action=index">Profile</a></li>
                   <li><a href="?controller=upload&action=index">Upload</a></li>
+                  <?php else: ?>
+                  <?php endif ?>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href='?controller=login_register&action=index'>Login/Register</a></li>
+                  <li>
+                      <?php if(isset($_SESSION['user_id'])): ?>
+                      <a href='?controller=user&action=logout'>Logout</a>
+                      <?php else: ?>
+                      <a href='?controller=user&action=index'>Login/Register</a>
+                      <?php endif ?>
+                  </li>
                 </ul>
               </div>
             </div>
           </nav>
       </div>
     </div>
-    <div class="container">
-      <?php require_once('routes.php'); ?>
-    </div>
-  </body>
-   <!-- Bootstrap core JavaScript
-=======
-
-    <header>
-      <a href='?'>Home</a>
-      <a href='?controller=posts&action=index'>Posts</a>
-    </header>
 
     <?php require_once('routes.php'); ?>
 
@@ -69,10 +68,14 @@
         <hr class="featurette-divider">
         <div class="container">
             <p class="pull-right"><a href="#">Back to top</a></p>
-            <p>&copy; 2017 Strange, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+            <p>&copy; 2017 Strange, Inc.</p>
         </div>
     </footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  </body>
 </html>

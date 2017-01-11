@@ -5,7 +5,7 @@
       if (!isset($_SESSION['user_id'])) {
           return call('pages', 'error');
       }
-      $updated = 0; 
+      $updated = 0;
       $profile = Profile::getProfile($_SESSION['user_id']);
       require_once('views/profile/index.php');
     }
