@@ -16,5 +16,34 @@
       $post = Post::find($_GET['id']);
       require_once('views/posts/show.php');
     }
+
+    // Input:
+    // content (string)
+    // For vulnerable version:
+    // id (user_id)
+    public function add() {
+      // Require valid session
+      if (isset($_SESSION['user'])) {
+        $user_id = $_SESSION['user_id'];
+      }
+
+      if (!WEB_SAFE && isset($_REQUEST['id'])) {
+        // In vulnerable version, we allow client to specify the ID to post as.
+        $user_id = $_REQUEST['id'];
+      }
+
+      if (!isset($user_id) || !isset($_REQUEST['content'])) {
+        return call('pages', 'error');
+      }
+      
+      $content = $_REQUEST['content'];
+
+      // Sanitize incoming content.
+      if (WEB_SAFE) {
+        $content = htmlspecialchars($content);
+      }
+
+      $success = Post::add($user_id, $content);
+    }
   }
 ?>
