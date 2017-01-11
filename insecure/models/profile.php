@@ -31,7 +31,7 @@
             $req->execute(array('id' => $id));
             $post = $req->fetch();
 
-            return new Post($post['id'], $post['username'], $post['password'], $post['role'], $post['display_name;'], $post['icon'], $post['home_page'], $post['profile_color'], $post['private_snippet']);
+            return new Post($post['id'], $post['username'], $post['password'], $post['role'], $post['display_name'], $post['icon'], $post['home_page'], $post['profile_color'], $post['private_snippet']);
         }
 
         public function updateProfile($id, $userName, $userPassword, $displayName, $icon, $homePage, $profileColor, $privateSnippet){
