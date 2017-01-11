@@ -14,6 +14,9 @@
       case 'profile':
         $controller = new ProfileController();
         break;
+      case 'login_register':
+        $controller = new LoginRegisterController();
+      break;
     }
 
     $controller->{ $action }();
@@ -23,6 +26,7 @@
   $controllers = array('pages' => ['home', 'error'],
                        'posts' => ['index', 'show'],
                        'profile' => ['index']);
+                       'login_register' => ['index']);
 
   if (array_key_exists($controller, $controllers)) {
     if (in_array($action, $controllers[$controller])) {
