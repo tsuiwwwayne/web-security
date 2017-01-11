@@ -7,7 +7,7 @@
     }
 
     public function myPosts() {
-      $posts = Post::getPostsForUser(1);
+      $posts = Post::getPostsForUser($_SESSION['user_id']);
       require_once('views/posts/mypost.php');
     }
 

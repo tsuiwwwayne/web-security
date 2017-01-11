@@ -5,7 +5,7 @@
         <div class="input-group">
          	<label class="input-group-btn">
                 <span class="btn btn-primary">
-                    Choose File<input type="file" id="fileToUpload" style="display: none;" multiple="">
+                    Choose File<input type="file" id="fileToUpload" name="fileToUpload" style="display: none;" multiple="">
                 </span>
             </label>
             <input type="text" class="form-control" readonly>
@@ -16,10 +16,17 @@
   </div>
 </div>
 
+<?php if(isset($output)): ?>
 <div style="border: 2px solid #326ff2; border-radius:5px; padding:10px;" id ="success-msg">
-	<p>File uploaded!</p>
-	<p>File available at: http://google-gruyere.appspot.com/774120962627/lmy6088/output.txt</p>
+  <?php if($uploadOk == 1): ?>
+    <p>File uploaded!</p>
+    <p>File available at: <?php echo $filepath ?></p>
+  <?php else: ?>
+    <p>Upload failed!</p>
+    <p><?php echo $output ?></p>
+  <?php endif ?>
 </div>
+<?php endif ?>
 
 <script>
 $(function() {

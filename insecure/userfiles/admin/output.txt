@@ -1,0 +1,10 @@
+-((-(rv-p)>-(-q>-r))>((-q>-r)>(rv-p))) is a negation.  -((-(rv-p)>-(-q>-r))>((-q>-r)>(rv-p))) is not satisfiable.
+((-q>-r)>((p>-p)>(-q>-r))) is a binary.  ((-q>-r)>((p>-p)>(-q>-r))) is satisfiable.
+-(-(qv-p)>((rvp)>-(qv-p))) is a negation.  -(-(qv-p)>((rvp)>-(qv-p))) is not satisfiable.
+((q>r)>(-(q>p)>(q>r))) is a binary.  ((q>r)>(-(q>p)>(q>r))) is satisfiable.
+-(((rvp)>(q>-r))>(((rvp)>q)>((rvp)>-r))) is a negation.  -(((rvp)>(q>-r))>(((rvp)>q)>((rvp)>-r))) is not satisfiable.
+(-(-r>-p)>((-q>-r)>-(-r>-p))) is a binary.  (-(-r>-p)>((-q>-r)>-(-r>-p))) is satisfiable.
+-(-(qvp)>(-(-r>-p)>-(qvp))) is a negation.  -(-(qvp)>(-(-r>-p)>-(qvp))) is not satisfiable.
+((-p>(q>(p>r)))>((-p>q)>(-p>(p>r)))) is a binary.  ((-p>(q>(p>r)))>((-p>q)>(-p>(p>r)))) is satisfiable.
+-((-p>-p)>((rv-p)>(-p>-p))) is a negation.  -((-p>-p)>((rv-p)>(-p>-p))) is not satisfiable.
+((--q>-(-p>-p))>((-p>-p)>-q)) is a binary.  ((--q>-(-p>-p))>((-p>-p)>-q)) is satisfiable.
