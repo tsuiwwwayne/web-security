@@ -37,7 +37,7 @@
   $controllers = array('pages' => ['home', 'error'],
                        'posts' => ['index', 'show', 'add', 'myPosts'],
                        'profile' => ['index'],
-                       'user' =>  ['login', 'logout', 'updateProfile'],
+                       'user' =>  ['login', 'logout', 'updateProfile', 'register'],
                        'upload' =>  ['index','uploadfile']);
                        
   // Controllers in this array require that a valid user session be present (i.e. $_SESSION['user_id'] exists)
