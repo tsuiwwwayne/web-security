@@ -55,8 +55,8 @@
     public static function add($userID, $content) {
         // todo: Set date created
         $db = Db::getInstance();
-        $req = $db->prepare('INSERT INTO posts (user_id, date_created, content) VALUES (?, ?, ?)');
-        $req->execute(array($userID, null, $content));
+        $req = $db->prepare('INSERT INTO posts (user_id, date_created, content) VALUES (?, NOW(), ?)');
+        $req->execute(array($userID, $content));
         // INSERT INTO `posts` (`id`, `user_id`, `date_created`, `content`) VALUES (NULL, '2', '2017-01-10 08:37:11', 'This is another piece of content!');
     }
 
