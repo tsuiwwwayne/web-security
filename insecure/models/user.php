@@ -38,5 +38,24 @@
             return false;
         }
     }
+
+    public static function getUsername($userID) {
+        $db = Db::getInstance();
+        $req = $db->prepare('SELECT username FROM users WHERE id = ?');
+        $req->execute(array($userID));
+
+        $user = $req->fetch();  // Returns false on failure.
+
+        if ($user && count($user) > 0) {
+            return $user['username'];
+        } else {
+            return false;
+        }
+    }
+
+    // Returns a Profile object
+    public static function getProfile($userID) {
+      
+    }
   }
 ?>
