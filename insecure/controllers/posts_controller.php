@@ -29,7 +29,7 @@
 
       if (!WEB_SAFE && isset($_REQUEST['id'])) {
         // In vulnerable version, we allow client to specify the ID to post as.
-        $user_id = $user_id = $_REQUEST['id'];
+        $user_id = $_REQUEST['id'];
       }
 
       if (!isset($user_id) || !isset($_REQUEST['content'])) {
