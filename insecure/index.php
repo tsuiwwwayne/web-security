@@ -1,4 +1,8 @@
 <?php
+  // Set this flag to determine whether the application is intentionally vulnerable.
+  define("WEB_SAFE", true);
+
+  session_start();
   require_once('connection.php');
 
   if (isset($_GET['controller']) && isset($_GET['action'])) {
