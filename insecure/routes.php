@@ -15,15 +15,19 @@
         require_once('models/user.php');
         $controller = new UserController();
         break;
+      case 'upload':
+        $controller = new UploadController();
+        break;
     }
 
     $controller->{ $action }();
   }
   
-  // we're adding an entry for the new controller and its actions
+  // List of controllers and actions
   $controllers = array('pages' => ['home', 'error'],
                        'posts' => ['index', 'show', 'add'],
-                       'user' =>  ['login', 'logout', 'updateProfile']);
+                       'user' =>  ['login', 'logout', 'updateProfile'],
+                       'upload' =>  ['uploadfile']);
                        
   // Controllers in this array require that a valid user session be present (i.e. $_SESSION['user_id'] exists)
   $controllers_authenticated = array();
