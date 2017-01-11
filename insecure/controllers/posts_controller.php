@@ -28,7 +28,7 @@
     // id (user_id)
     public function add() {
       // Require valid session
-      if (isset($_SESSION['user'])) {
+      if (isset($_SESSION['user_id'])) {
         $user_id = $_SESSION['user_id'];
       }
 
