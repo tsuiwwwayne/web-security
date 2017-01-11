@@ -1,25 +1,23 @@
 <?php
     class Profile{
         public $id;
-        public $userName;
-        public $userPassword;
+        public $username;
+        public $password;
         public $role;
-        public $displayName;
+        public $displayname;
         public $icon;
-        public $homePage;
+        public $homepage;
         public $profileColor;
-        public $privateSnippet;
 
-        public function __construct($id, $userName, $userPassword, $role, $displayName, $icon, $homePage, $profileColor, $privateSnippet){
+        public function __construct($id, $username, $password, $role, $displayname, $icon, $homepage, $profileColor){
             $this->id = $id;
-            $this->userName = $userName;
-            $this->userPassword = $userPassword;
+            $this->username = $username;
+            $this->userpassword = $password;
             $this->role = $role;
-            $this->displayName = $displayName;
+            $this->displayname = $displayname;
             $this->icon = $icon;
-            $this->homePage = $homePage;
+            $this->homepage = $homepage;
             $this->profileColor = $profileColor;
-            $this->privateSnipper = $privateSnippet;
         }
 
         public function getProfile($id){
@@ -31,16 +29,16 @@
             $req->execute(array('id' => $id));
             $post = $req->fetch();
 
-            return new Post($post['id'], $post['username'], $post['password'], $post['role'], $post['display_name'], $post['icon'], $post['home_page'], $post['profile_color'], $post['private_snippet']);
+            return new Post($post['id'], $post['username'], $post['password'], $post['role'], $post['display_name'], $post['icon'], $post['home_page'], $post['profile_color']);
         }
 
-        public function updateProfile($id, $userName, $userPassword, $displayName, $icon, $homePage, $profileColor, $privateSnippet){
+        public function updateProfile($id, $username, $password, $displayname, $icon, $homepage, $profileColor){
             $db = Db::getInstance();
             // we make sure $id is an integer
             $id = intval($id);
 
-            $req = $db->prepare('UPDATE users SET username = ?, password = ?, display_name = ?, icon = ?, home_page = ?, profile_color = ?, private_snipper = ? WHERE id = ?');
-            $req->execute(array($userName, $userPassword, $displayName, $icon, $homePage, $profileColor, $privateSnippet, $id));
+            $req = $db->prepare('UPDATE users SET username = ?, password = ?, display_name = ?, icon = ?, home_page = ?, profile_color = ? WHERE id = ?');
+            $req->execute(array($username, $password, $displayname, $icon, $homepage, $profileColor, $id));
         }
     }
 
