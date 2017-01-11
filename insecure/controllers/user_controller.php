@@ -40,7 +40,7 @@
       if (!isset($_REQUEST['username']) || !isset($_REQUEST['password']) || !isset($_REQUEST['displayname'])) {
         return call('pages', 'error');
       }
-      
+
       $username     = $_REQUEST['username'];
       $password     = $_REQUEST['password'];
       $displayname  = $_REQUEST['displayname'];
