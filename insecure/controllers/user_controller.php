@@ -4,21 +4,22 @@
     // user, password
     public function login() {
       // Output error if no username or password provided.
-      if (!isset($_REQUEST['user']) || !isset($_REQUEST['password'])) {
+      if (!isset($_REQUEST['username']) || !isset($_REQUEST['password'])) {
         return call('pages', 'error');
       }
 
-      $username = $_REQUEST['user'];
+      $username = $_REQUEST['username'];
       $password = $_REQUEST['password'];
 
       $user = User::login($username, $password);
       if ($user) {
         $_SESSION['user_id'] = $user->id;
-        // echo "ELLO " . $user->displayName . "!";
-        // echo "<br>";
-        echo "ELLO " . User::getDisplayName($user->id) . "!";
+        //echo "ELLO " . User::getDisplayName($user->id) . "!";
+        return call('pages', 'home');
       } else {
+        $output = "LOGIN FAIL";
         echo "LOGIN FAIL";
+        //self::logout();
         return call('pages', 'error');
       }
     }
@@ -27,19 +28,6 @@
       unset($_SESSION['user_id']);
       // Return to home page.
       return call('pages', 'home');
-    }
-
-    public function getDisplayName() {
-
-    }
-
-    // Returns a Profile object
-    public function getProfile() {
-
-    }
-
-    public function updateProfile() {
-
     }
   }
 ?>
