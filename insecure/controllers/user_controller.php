@@ -30,7 +30,12 @@
     }
 
     public function getDisplayName() {
-      
+
+    }
+
+    // Returns a Profile object
+    public function getProfile() {
+
     }
 
     public function updateProfile() {

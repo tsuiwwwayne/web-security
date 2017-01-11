@@ -48,6 +48,7 @@
 
     // Deletes a post
     public static function remove($postID) {
+      $db = Db::getInstance();
       
     }
   }
