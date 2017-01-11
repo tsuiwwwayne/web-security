@@ -37,7 +37,7 @@
               <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                   <li class="active"><a href="#">Home</a></li>
-                  <li><a href="?controller=mypost&action=index">My Posts</a></li>
+                  <li><a href="?controller=posts&action=myPosts">My Posts</a></li>
                   <li><a href="#add-post">Add Post</a></li>
                   <li><a href="?controller=profile&action=index">Profile</a></li>
                   <li><a href="?controller=upload&action=index">Upload</a></li>
