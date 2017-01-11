@@ -5,8 +5,8 @@
             <div class="panel-heading text-center">
                <label id="login-title">Login</label>
             </div>
-            <form class="form-horizontal margin-20" id="form">
-               <div class="panel-body">
+            <form class="form-horizontal" id="form" method="post" action="?controller=user&action=login">
+               <div class="panel-body margin-20">
                   <!-- USERNAME -->
                   <div class="form-group">
                      <div class="row">
@@ -48,10 +48,10 @@
                   </div>
                   <div class="col-sm-12" style="text-align: center"><label class="text-danger">Error Msg</label></div>
                </div>
+               <div class="panel-footer text-center">
+                  <button id="login-btn" type="submit" class="btn btn-primary padding-left-20 padding-right-20">Login</button>
+               </div>
             </form>
-            <div class="panel-footer text-center">
-               <button id="login-btn" type="submit" class="btn btn-primary padding-left-20 padding-right-20">Login</button>
-            </div>
          </div>
          <p class="text-right">
             <span id="register-prompt">Don't have an account?</span>

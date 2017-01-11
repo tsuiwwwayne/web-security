@@ -20,10 +20,6 @@
 
     <!-- Custom styles for this login and register page -->
     <link href="bootstrap-3.3.7-dist/css/login-register.css" rel="stylesheet" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-    <!-- Custom styles for this login and register page -->
-    <link href="bootstrap-3.3.7-dist/css/the-big-picture.css" rel="stylesheet" type="text/css">
 
   </head>
   <body class="background-full">
@@ -48,7 +44,6 @@
                   <li><a href="?controller=profile&action=index">Profile</a></li>
                   <li><a href="?controller=upload&action=index">Upload</a></li>
                   <?php else: ?>
-                  <!-- empty -->
                   <?php endif ?>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -63,8 +58,8 @@
               </div>
             </div>
           </nav>
+      </div>
     </div>
-  </body>
 
     <?php require_once('routes.php'); ?>
 
@@ -82,4 +77,5 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  </body>
 </html>
