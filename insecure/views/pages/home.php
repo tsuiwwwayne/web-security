@@ -68,7 +68,16 @@
 <!-- Information of all users.
      Include profile photo, display name and latest post.
      Also has link to home page (if logged in).
-================================================== -->
+=======
+
+<p>This is the home page.</p>
+
+<?php if ($loggedIn): ?>
+<p>You are logged in as <?php echo $displayName ?>.</p>
+<?php else: ?>
+<p>You are not logged in.</p>
+<?php endif ?>
+-->
 
 <div class="container marketing">
 

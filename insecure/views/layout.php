@@ -20,6 +20,7 @@
 
     <!-- Custom styles for this login and register page -->
     <link href="bootstrap-3.3.7-dist/css/login-register.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <!-- Custom styles for this login and register page -->
     <link href="bootstrap-3.3.7-dist/css/the-big-picture.css" rel="stylesheet" type="text/css">
@@ -28,7 +29,6 @@
   <body class="background-full">
       <div class="navbar-wrapper">
         <div class="container">
-
           <nav class="navbar navbar-inverse navbar-static-top">
             <div class="container">
               <div class="navbar-header">
@@ -43,9 +43,10 @@
               <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                   <?php if(isset($_SESSION['user_id'])): ?>
-                  <li><a href="#my-posts">My Posts</a></li>
+                  <li><a href="?controller=posts&action=myPosts">My Posts</a></li>
                   <li><a href="#add-post">Add Post</a></li>
-                  <li><a href="#upload">Upload</a></li>
+                  <li><a href="?controller=profile&action=index">Profile</a></li>
+                  <li><a href="?controller=upload&action=index">Upload</a></li>
                   <?php else: ?>
                   <!-- empty -->
                   <?php endif ?>
@@ -62,9 +63,8 @@
               </div>
             </div>
           </nav>
-
-        </div>
-      </div>
+    </div>
+  </body>
 
     <?php require_once('routes.php'); ?>
 
@@ -82,5 +82,4 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-  </body>
 </html>

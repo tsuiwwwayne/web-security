@@ -5,28 +5,50 @@
     switch($controller) {
       case 'pages':
         $controller = new PagesController();
-      break;
+        break;
       case 'posts':
         // we need the model to query the database later in the controller
         require_once('models/post.php');
         $controller = new PostsController();
+        break;
+      case 'user':
+        require_once('models/user.php');
+        $controller = new UserController();
+        break;
+      case 'upload':
+        $controller = new UploadController();
+        break;
       break;
+      case 'profile':
+        $controller = new ProfileController();
+        break;
       case 'login_register':
         $controller = new LoginRegisterController();
+      break;
+      case 'upload':
+        $controller = new UploadController(); 
       break;
     }
 
     $controller->{ $action }();
   }
-
-  // we're adding an entry for the new controller and its actions
+  
+  // List of controllers and actions
   $controllers = array('pages' => ['home', 'error'],
-                       'posts' => ['index', 'show'],
-                       'login_register' => ['index']);
-
+                       'posts' => ['index', 'show', 'add', 'myPosts'],
+                       'profile' => ['index'],
+                       'user' =>  ['login', 'logout', 'updateProfile'],
+                       'upload' =>  ['index','uploadfile']);
+                       
+  // Controllers in this array require that a valid user session be present (i.e. $_SESSION['user_id'] exists)
+  $controllers_authenticated = array();
   if (array_key_exists($controller, $controllers)) {
     if (in_array($action, $controllers[$controller])) {
       call($controller, $action);
+    // } else if (in_array($action, $controllers_authenticated[$controller])) {
+    //   if (isset($_SESSION['user_id'])) {
+    //     call($controller, $action);
+    //   }
     } else {
       call('pages', 'error');
     }
