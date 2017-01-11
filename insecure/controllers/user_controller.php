@@ -36,7 +36,6 @@
     }
 
     public function register() {
-      echo "register";
       if (!isset($_REQUEST['username']) || !isset($_REQUEST['password']) || !isset($_REQUEST['displayname'])) {
         return call('pages', 'error');
       }
