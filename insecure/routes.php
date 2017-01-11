@@ -11,6 +11,9 @@
         require_once('models/post.php');
         $controller = new PostsController();
       break;
+      case 'profile':
+        $controller = new ProfileController();
+        break;
     }
 
     $controller->{ $action }();
@@ -18,7 +21,8 @@
 
   // we're adding an entry for the new controller and its actions
   $controllers = array('pages' => ['home', 'error'],
-                       'posts' => ['index', 'show']);
+                       'posts' => ['index', 'show'],
+                       'profile' => ['index']);
 
   if (array_key_exists($controller, $controllers)) {
     if (in_array($action, $controllers[$controller])) {
