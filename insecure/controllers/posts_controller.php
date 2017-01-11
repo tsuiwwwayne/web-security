@@ -23,26 +23,21 @@
     // id (user_id)
     public function add() {
       // Require valid session
-      if (WEB_SAFE) {
-        if (!isset($_SESSION['user'])) {
-          return call('pages', 'error');
-        }
+      if (isset($_SESSION['user'])) {
         $user_id = $_SESSION['user_id'];
-      } else {
-        // In vulnerable version, we allow client to specify the ID to post as.
-        if (!isset($_REQUEST['id'])) {
-          return call('pages', 'error');
-        }
-        $user_id = $_REQUEST['id'];
       }
 
-      if (!isset($_REQUEST['content'])) {
+      if (!WEB_SAFE && isset($_REQUEST['id'])) {
+        // In vulnerable version, we allow client to specify the ID to post as.
+        $user_id = $user_id = $_REQUEST['id'];
+      }
+
+      if (!isset($user_id) || !isset($_REQUEST['content'])) {
         return call('pages', 'error');
       }
       $content = $_REQUEST['content'];
 
       $success = Post::add($user_id, $content);
-      
     }
   }
 ?>
