@@ -40,7 +40,9 @@
             } else {
                 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                     $output = "The file ". basename( $_FILES["fileToUpload"]["tmp_name"]). " has been uploaded.";
-                    $filepath = $_SERVER['HTTP_HOST'] . $target_file;
+                    $path = substr($_SERVER['REQUEST_URI'], 0, strrpos($_SERVER['REQUEST_URI'], '/'));
+                    $filepath = $_SERVER['HTTP_ORIGIN'] . $path . '/' . $target_file;
+                    //print_r($_SERVER);
                 } else {
                     $output = "Sorry, there was an error uploading your file.";
                 }

@@ -53,6 +53,12 @@
         }
     }
 
+    public static function registerUser($username, $password, $displayname) {
+        $db = Db::getInstance();
+        $req = $db->prepare('INSERT INTO users (username, password, display_name, role) VALUES (?, ?, ?, 2)');
+        $req->execute(array($username, $password, $displayname));
+    }
+
     // TODO.
     // Returns a Profile object.
     public static function getProfile($userID) {
