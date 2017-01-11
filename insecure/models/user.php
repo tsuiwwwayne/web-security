@@ -16,10 +16,24 @@
         $req = $db->prepare('SELECT id, display_name FROM users WHERE username = ? AND password = ?');
         $req->execute(array($username, $password));
 
-        $user = $req->fetch();
+        $user = $req->fetch();  // Returns false on failure.
 
         if ($user && count($user) > 0) {
             return new User($user['id'], $user['display_name']);
+        } else {
+            return false;
+        }
+    }
+
+    public static function getDisplayName($userID) {
+        $db = Db::getInstance();
+        $req = $db->prepare('SELECT display_name FROM users WHERE id = ?');
+        $req->execute(array($userID));
+
+        $user = $req->fetch();  // Returns false on failure.
+
+        if ($user && count($user) > 0) {
+            return $user['display_name'];
         } else {
             return false;
         }

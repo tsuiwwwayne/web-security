@@ -3,18 +3,20 @@
     // Input:
     // user, password
     public function login() {
-      // Redirect to error if no username or password provided.
-      $username = $_REQUEST['user'];
-      $password = $_REQUEST['password'];
+      // Output error if no username or password provided.
       if (!isset($_REQUEST['user']) || !isset($_REQUEST['password'])) {
         return call('pages', 'error');
       }
 
+      $username = $_REQUEST['user'];
+      $password = $_REQUEST['password'];
+
       $user = User::login($username, $password);
       if ($user) {
-        $_SESSION['user'] = $user;
         $_SESSION['user_id'] = $user->id;
-        echo "ELLO " . $user->displayName . "!";
+        // echo "ELLO " . $user->displayName . "!";
+        // echo "<br>";
+        echo "ELLO " . User::getDisplayName($user->id) . "!";
       } else {
         echo "LOGIN FAIL";
         return call('pages', 'error');
@@ -22,10 +24,13 @@
     }
 
     public function logout() {
-      unset($_SESSION['user']);
       unset($_SESSION['user_id']);
       // Return to home page.
       return call('pages', 'home');
+    }
+
+    public function getDisplayName() {
+      
     }
 
     public function updateProfile() {
