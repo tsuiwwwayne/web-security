@@ -1,39 +1,45 @@
 <?php
     class UploadController {
         public function uploadfile() {
-            $target_dir = "uploads/";
+            if (!isset($_SESSION['user_id'])) {
+                return call('pages', 'error');
+            }
+
+            require_once('models/user.php');
+            $username = User::getUserName($_SESSION['user_id']);
+
+            $target_dir = "userfiles/";
             $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
             $uploadOk = 1;
-            $fileType = pathinfo($target_file, PATHINFO_EXTENSION);
-            // Check if file already exists
-            if (file_exists($target_file)) {
-                echo "Sorry, file already exists.";
-                $uploadOk = 0;
-            }
+            $fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+            
             // Check file size
             if ($_FILES["fileToUpload"]["size"] > 500000) {
-                echo "Sorry, your file is too large.";
+                $output = "Sorry, your file is too large.";
                 $uploadOk = 0;
             }
             if (WEB_SAFE) {
                 // Only allow certain file formats
                 if($fileType != "jpg" && $fileType != "png" && $fileType != "jpeg"
-                && $fileType != "gif" && $fileType != "txt") {
-                    echo "Sorry, this filetype is not allowed.";
+                && $fileType != "gif" && $fileType != "txt" && $fileType != "pdf") {
+                    $output = "Sorry, this filetype is not allowed.";
                     $uploadOk = 0;
                 }
             }
             // Check if $uploadOk is set to 0 by an error
             if ($uploadOk == 0) {
-                echo "Sorry, your file was not uploaded.";
+                // Do nothing
             // if everything is ok, try to upload file
             } else {
                 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                    echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+                    $output = "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
                 } else {
-                    echo "Sorry, there was an error uploading your file.";
+                    $output = "Sorry, there was an error uploading your file.";
                 }
             }
+
+            // Comment this out - the view should display this variable.
+            echo $output;
         }
     }
 ?>
