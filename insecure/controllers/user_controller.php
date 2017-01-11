@@ -44,12 +44,12 @@
       $password     = $_REQUEST['password'];
       $displayname  = $_REQUEST['displayname'];
 
-      // Enforce that username is alphanumeric.
-      if (!ctype_alnum($username)) {
-        return call('pages', 'error');
-      }
-
       if (WEB_SAFE) {
+        // Enforce that username is alphanumeric.
+        if (!ctype_alnum($username)) {
+          return call('pages', 'error');
+        }
+        
         // Enforce no special characters in display name.
         $displayname = htmlspecialchars($displayname);
       }
