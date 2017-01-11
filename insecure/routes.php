@@ -36,7 +36,7 @@
   
   // List of controllers and actions
   $controllers = array('pages' => ['home', 'error'],
-                       'posts' => ['index', 'show', 'add', 'myPosts'],
+                       'posts' => ['index', 'show', 'add', 'myPosts','addPostIndex'],
                        'profile' => ['index', 'updateProfile'],
                        'user' =>  ['login', 'logout', 'updateProfile'],
                        'upload' =>  ['index','uploadfile']);
