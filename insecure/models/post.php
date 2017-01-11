@@ -15,11 +15,11 @@
     public static function all() {
       $list = [];
       $db = Db::getInstance();
-      $req = $db->query('SELECT * FROM posts');
+      $req = $db->query('SELECT posts.id, users.display_name, posts.content FROM posts JOIN users ON posts.user_id = users.id');
 
       // we create a list of Post objects from the database results
       foreach ($req->fetchAll() as $post) {
-        $list[] = new Post($post['id'], $post['user_id'], $post['content']);
+        $list[] = new Post($post['id'], $post['display_name'], $post['content']);
       }
 
       return $list;
@@ -44,12 +44,12 @@
       $db = Db::getInstance();
       // we make sure $id is an integer
       $id = intval($id);
-      $req = $db->prepare('SELECT * FROM posts WHERE id = :id');
+      $req = $db->prepare('SELECT posts.id, users.display_name, posts.content FROM posts JOIN users ON posts.user_id = users.id WHERE posts.id = :id');
       // the query was prepared, now we replace :id with our actual $id value
       $req->execute(array('id' => $id));
       $post = $req->fetch();
 
-      return new Post($post['id'], $post['user_id'], $post['content']);
+      return new Post($post['id'], $post['display_name'], $post['content']);
     }
 
     public static function add($userID, $content) {
