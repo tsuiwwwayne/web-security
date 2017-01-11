@@ -1,4 +1,4 @@
-<div class="panel panel-default" style="margin-top: 50px;">
+<div class="panel panel-default" style="margin-top: 30px;">
   <div class="panel-heading">Edit your profile</div>
   <div class="panel-body">
       <form class="form-horizontal">

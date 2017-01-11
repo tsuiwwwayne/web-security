@@ -17,6 +17,12 @@
       case 'login_register':
         $controller = new LoginRegisterController();
       break;
+      case 'upload':
+        $controller = new UploadController(); 
+      break;
+      case 'mypost':
+        $controller = new MyPostController();
+      break;
     }
 
     $controller->{ $action }();
@@ -25,8 +31,10 @@
   // we're adding an entry for the new controller and its actions
   $controllers = array('pages' => ['home', 'error'],
                        'posts' => ['index', 'show'],
-                       'profile' => ['index']);
-                       'login_register' => ['index']);
+                       'profile' => ['index'],
+                       'login_register' => ['index'],
+                       'upload' => ['index'],
+                       'mypost' => ['index']);
 
   if (array_key_exists($controller, $controllers)) {
     if (in_array($action, $controllers[$controller])) {

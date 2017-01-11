@@ -17,6 +17,7 @@
 
     <!-- Custom styles for this login and register page -->
     <link href="bootstrap-3.3.7-dist/css/login-register.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
   </head>
   <body style="padding-top: 70px;">
@@ -36,10 +37,10 @@
               <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                   <li class="active"><a href="#">Home</a></li>
-                  <li><a href="#my-posts">My Posts</a></li>
+                  <li><a href="?controller=mypost&action=index">My Posts</a></li>
                   <li><a href="#add-post">Add Post</a></li>
                   <li><a href="?controller=profile&action=index">Profile</a></li>
-                  <li><a href="#upload">Upload</a></li>
+                  <li><a href="?controller=upload&action=index">Upload</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                   <li><a href='?controller=login_register&action=index'>Login/Register</a></li>
