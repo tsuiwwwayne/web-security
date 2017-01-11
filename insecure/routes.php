@@ -20,6 +20,7 @@
         break;
       break;
       case 'profile':
+        require_once('models/user.php');
         $controller = new ProfileController();
         break;
       case 'login_register':
