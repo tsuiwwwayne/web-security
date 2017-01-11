@@ -42,7 +42,6 @@
               </div>
               <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                  <li><a href="?">Home</a></li>
                   <?php if(isset($_SESSION['user_id'])): ?>
                   <li><a href="#my-posts">My Posts</a></li>
                   <li><a href="#add-post">Add Post</a></li>

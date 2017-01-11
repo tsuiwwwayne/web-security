@@ -65,9 +65,10 @@
   </a>
 </div><!-- /.carousel -->
 
-<!-- Marketing messaging and featurettes
+<!-- Information of all users.
+     Include profile photo, display name and latest post.
+     Also has link to home page (if logged in).
 ================================================== -->
-<!-- Wrap the rest of the page in another container to center all the content. -->
 
 <div class="container marketing">
 
