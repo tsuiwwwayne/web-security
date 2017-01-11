@@ -44,7 +44,16 @@
                     $filepath = $_SERVER['HTTP_ORIGIN'] . $path . '/' . $target_file;
                     //print_r($_SERVER);
                 } else {
-                    $output = "Sorry, there was an error uploading your file.";
+                    $uploadOk = 0;
+                    switch($_FILES["fileToUpload"]["error"]) {
+                        case UPLOAD_ERR_INI_SIZE:
+                        case UPLOAD_ERR_FORM_SIZE:
+                            $output = "The file was too large.";
+                            break;
+                        default:
+                            $output = "Sorry, there was an error uploading your file.";
+                            break;
+                    }
                 }
             }
 
