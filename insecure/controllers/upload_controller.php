@@ -48,7 +48,6 @@
                 }
             }
 
-            // Comment this out - the view should display this variable.
             require_once('views/upload-file/index.php');
         }
     }
