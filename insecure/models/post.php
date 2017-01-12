@@ -77,10 +77,21 @@
         // INSERT INTO `posts` (`id`, `user_id`, `date_created`, `content`) VALUES (NULL, '2', '2017-01-10 08:37:11', 'This is another piece of content!');
     }
 
-    // Deletes a post
-    public static function remove($postID) {
+    // Return owner's user ID
+    public static function getPostOwner($postID) {
       $db = Db::getInstance();
+      $req = $db->prepare('SELECT user_id FROM posts WHERE id = :id');
+      $req->execute(array('id' => $postID));
+      $post = $req->fetch();
 
+      return $post['user_id'];
+    }
+
+    // Deletes a post
+    public static function delete($postID) {
+      $db = Db::getInstance();
+      $req = $db->prepare('DELETE FROM posts WHERE id = ?');
+      $req->execute(array($postID));
     }
   }
 ?>
