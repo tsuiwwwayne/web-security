@@ -20,6 +20,7 @@
 
     <!-- Custom styles for this login and register page -->
     <link href="bootstrap-3.3.7-dist/css/login-register.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
   </head>
   <body class="background-full">
@@ -40,7 +41,7 @@
                 <ul class="nav navbar-nav">
                   <?php if(isset($_SESSION['user_id'])): ?>
                   <li><a href="?controller=posts&action=myPosts">My Posts</a></li>
-                  <li><a href="#add-post">Add Post</a></li>
+                  <li><a href="?controller=posts&action=addPostIndex">Add Post</a></li>
                   <li><a href="?controller=profile&action=index">Profile</a></li>
                   <li><a href="?controller=upload&action=index">Upload</a></li>
                   <?php else: ?>

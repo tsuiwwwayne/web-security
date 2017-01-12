@@ -15,25 +15,25 @@
             <div class="form-group">
               <label class="control-label col-sm-2" for="pwd">Display Name:</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="display_name" placeholder=" <?php echo $profile->displayname ?> ">
+                <input type="text" class="form-control" name="display_name" value="<?php echo $profile->displayname ?>">
               </div>
             </div>
             <div class="form-group">
               <label class="control-label col-sm-2" for="pwd">Icon:</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="icon" placeholder="<?php echo $profile->icon ?>">
+                <input type="text" class="form-control" name="icon" value="<?php echo $profile->icon ?>">
               </div>
             </div>
             <div class="form-group">
               <label class="control-label col-sm-2" for="pwd">Homepage:</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="homepage" placeholder="<?php echo $profile->homepage ?>">
+                <input type="text" class="form-control" name="homepage" value="<?php echo $profile->homepage ?>">
               </div>
             </div>
             <div class="form-group">
               <label class="control-label col-sm-2" for="pwd">Profile Color:</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="profile_colour" placeholder="<?php echo $profile->profileColor ?>">
+                <input type="text" class="form-control" name="profile_colour" value="<?php echo $profile->profileColor ?>">
               </div>
             </div>
             <div class="form-group">

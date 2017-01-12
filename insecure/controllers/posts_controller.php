@@ -21,11 +21,17 @@
       $post = Post::find($_GET['id']);
       require_once('views/posts/show.php');
     }
-
     // Input:
     // content (string)
     // For vulnerable version:
     // id (user_id)
+    public function addPostIndex(){
+      if (!isset($_SESSION['user_id'])) {
+        return call('pages', 'error');
+      }
+      require_once('views/posts/addpost.php');
+    }
+
     public function add() {
       // Require valid session
       if (isset($_SESSION['user_id'])) {
@@ -49,6 +55,33 @@
       }
 
       $success = Post::add($user_id, $content);
+      $posts = $posts = Post::getPostsForUser($_SESSION['user_id']);
+      require_once('views/posts/mypost.php');
+    }
+
+    public function delete() {
+      // Get session
+      if (isset($_SESSION['user_id'])) {
+        $user_id = $_SESSION['user_id'];
+      }
+
+      if (!isset($user_id) || !isset($_REQUEST['id'])) {
+        echo "not set";
+        return call('pages', 'error');
+      }
+
+      $id = $_REQUEST['id'];
+
+      if (WEB_SAFE) {
+        // Verify that the user owns the snippet. (or that the user is an administrator)
+        if ($user_id != Post::getPostOwner($id)) {
+          return call('pages', 'error');
+        }
+      }
+
+      $success = Post::delete($id);
+      $posts = $posts = Post::getPostsForUser($_SESSION['user_id']);
+      require_once('views/posts/mypost.php');
     }
   }
 ?>
