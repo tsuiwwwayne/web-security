@@ -14,7 +14,7 @@
         <div class="carousel-caption">
           <h1>UCL Group E</h1>
           <p>Team project investigating the vulnerabilities of web security, using HTML, CSS, JavaScript and PHP.</p>
-          <p><a class="btn btn-lg btn-default" href="https://github.com/tsuiwwwayne/web-security" role="button">GitHub</a></p>
+          <p><a class="btn btn-lg btn-default" href="https://github.com/tsuiwwwayne/web-security" role="button"><img src="assets/img/git.png" height="30" width="30"/><span class="margin-left-10 margin-right-10" style="vertical-align: middle;">GitHub</span></a></p>
         </div>
       </div>
     </div>
@@ -26,19 +26,19 @@
           <div class="row">
             <div class="col-xs-6 col-md-3">
               <img class="img-circle" src="assets/img/wayne-tsui.png" alt="Generic placeholder image" width="100" height="100">
-              <p class="margin-20">Wayne Tsui</p>
+              <p class="margin-10">Wayne Tsui</p>
             </div>
             <div class="col-xs-6 col-md-3">
               <img class="img-circle" src="assets/img/raymond-tan.png" alt="Generic placeholder image" width="100" height="100">
-              <p class="margin-20">Raymond Tan</p>
+              <p class="margin-10">Raymond Tan</p>
             </div>
             <div class="col-xs-6 col-md-3">
               <img class="img-circle" src="assets/img/christopher-lau.png" alt="Generic placeholder image" width="100" height="100">
-              <p class="margin-20">Christopher Lau</p>
+              <p class="margin-10">Christopher Lau</p>
             </div>
             <div class="col-xs-6 col-md-3">
               <img class="img-circle" src="assets/img/jason-in.png" alt="Generic placeholder image" width="100" height="100">
-              <p class="margin-20">Jason In</p>
+              <p class="margin-10">Jason In</p>
             </div>
           </div><!-- /.row -->
         </div>
@@ -71,20 +71,41 @@
 ================================================ -->
 
 <div class="container marketing">
-  <div class="row">
+
     <?php
       if(!empty($listings)) {
+        $counter = 0;
         foreach($listings as $listing) {
-            echo
-            '<div class="col-xs-6 col-md-4">
-              <img class="img-circle" src="' . $listing->icon .'" alt="Generic placeholder image" width="140" height="140">
-              <h2>' . $listing->displayname . '</h2>
-              <p>' . $listing->latestPost . '</p>
-              <p><a class="btn btn-default" href="' . $listing->homepage .'" role="button">Homepage &raquo;</a></p>
-            </div>';
+            if ($counter % 3 == 0) { // First out of 3 listing
+                echo
+                '<div class="row padding-left-20 padding-right-20">
+                <div class="col-xs-4 col-md-4">
+                  <img class="img-circle" src="' . $listing->icon .'" alt="Generic placeholder image" width="120" height="120">
+                  <h4 style="color:' . $listing->profileColor . ';">' . $listing->displayname . '</h4>
+                  <p>' . $listing->latestPost . '</p>
+                  <p><a class="btn btn-default" href="' . $listing->homepage .'" role="button">Homepage &raquo;</a></p>
+                </div>';
+            } elseif ($counter % 3 == 1) { // Second out of 3 listing
+                echo
+                '<div class="col-xs-4 col-md-4">
+                  <img class="img-circle" src="' . $listing->icon .'" alt="Generic placeholder image" width="120" height="120">
+                  <h4 style="color:' . $listing->profileColor . ';">' . $listing->displayname . '</h4>
+                  <p>' . $listing->latestPost . '</p>
+                  <p><a class="btn btn-default" href="' . $listing->homepage .'" role="button">Homepage &raquo;</a></p>
+                </div>';
+            } elseif ($counter % 3 == 2) { // Third out of 3 listing
+                echo
+                    '<div class="col-xs-4 col-md-4">
+                      <img class="img-circle" src="' . $listing->icon .'" alt="Generic placeholder image" width="120" height="120">
+                      <h4 style="color:' . $listing->profileColor . ';">' . $listing->displayname . '</h4>
+                      <p>' . $listing->latestPost . '</p>
+                      <p><a class="btn btn-default" href="' . $listing->homepage .'" role="button">Homepage &raquo;</a></p>
+                    </div>
+                </div>'; // end of row
+            }
+            $counter++;
         }
       }
     ?>
-  </div><!-- /.row -->
 
 </div><!-- /.container -->
