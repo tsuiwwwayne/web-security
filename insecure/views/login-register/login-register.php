@@ -13,7 +13,7 @@
                      <div class="row">
                         <label class="control-label col-sm-3" for="username">Username:</label>
                         <div class="col-sm-8">
-                           <input type="text" class="form-control" name="username" placeholder="Enter username" onblur="checkIfEmpty('username')" required>
+                           <input type="text" class="form-control" name="username" placeholder="Enter username" oninput="checkSubmitButton(this)" onblur="checkInput(this)" required>
                         </div>
                      </div>
                   </div>
@@ -22,7 +22,7 @@
                      <div class="row">
                         <label class="control-label col-sm-3" for="password">Password:</label>
                         <div class="col-sm-8">
-                           <input type="password" class="form-control" name="password" placeholder="Enter password" required>
+                           <input type="password" class="form-control" name="password" placeholder="Enter password" oninput="checkSubmitButton(this)" onblur="checkInput(this)" required>
                         </div>
                      </div>
                   </div>
@@ -33,7 +33,7 @@
                         <div class="row">
                            <label class="control-label col-sm-3" for="password-confirm">Confirm Password:</label>
                            <div class="col-sm-8">
-                              <input type="password" class="form-control" name="password-confirm" placeholder="Confirm password">
+                              <input type="password" class="form-control" name="password-confirm" placeholder="Confirm password" oninput="checkSubmitButton(this)" onblur="checkInput(this)" >
                            </div>
                         </div>
                      </div>
@@ -42,14 +42,14 @@
                         <div class="row">
                            <label class="control-label col-sm-3" for="displayname">Display name:</label>
                            <div class="col-sm-8">
-                              <input type="text" class="form-control" name="displayname" placeholder="Enter display name" onblur="checkIfEmpty('displayname')">
+                              <input type="text" class="form-control" name="displayname" placeholder="Enter display name" oninput="checkSubmitButton(this)" onblur="checkInput(this)">
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
                <div class="panel-footer text-center" style="margin-bottom:-15px">
-                  <button id="login-btn" type="submit" class="btn btn-primary padding-left-20 padding-right-20">Login</button>
+                  <button id="login-btn" type="submit" disabled=true class="btn btn-primary padding-left-20 padding-right-20">Login</button>
                </div>
             </form>
          </div>
@@ -70,6 +70,8 @@
            $('#login-title').text('Register');
            $('#register-prompt').text('Are you an existing user?');
            $('#register-btn').text('Back to Login');
+           checkSubmitButton(document.getElementsByName('password-confirm'));
+           checkSubmitButton(document.getElementsByName('displayname'));
            reg=true;
        }
        else {
@@ -78,6 +80,8 @@
            $('#login-title').text('Login');
            $('#register-prompt').text('Don\'t have an account?');
            $('#register-btn').text('Register');
+           checkSubmitButton(document.getElementsByName('username'));
+           checkSubmitButton(document.getElementsByName('password'));
            reg=false;
        }
    }
@@ -91,5 +95,79 @@
            window.scrollTo(0,0);
            scroll = false;
        }
+   }
+
+   var isUsernameFilled = false;
+   var isPasswordFilled = false;
+   var isPasswordConfirmFilled = false;
+   var isDisplaynameFilled = false;
+
+    function checkSubmitButton(input) {
+        switch (input.name) {
+            case "username":
+                if (input.value.length != 0) {
+                    isUsernameFilled=true;
+                } else {
+                    isUsernameFilled=false;
+                }
+            break;
+
+            case "password":
+                if (input.value.length != 0) {
+                    isPasswordFilled=true;
+                } else {
+                    isPasswordFilled=false;
+                }
+            break;
+
+            case "password-confirm":
+                if (input.value.length != 0) {
+                    isPasswordConfirmFilled=true;
+                } else {
+                    isPasswordConfirmFilled=false;
+                }
+            break;
+
+            case "displayname":
+                if (input.value.length != 0) {
+                    isDisplaynameFilled=true;
+                } else {
+                    isDisplaynameFilled=false;
+                }
+            break;
+
+            default:
+            break;
+        }
+
+        switch ($('#login-btn').text()) {
+            case "Login":
+                if (isUsernameFilled && isPasswordFilled) {
+                    $('#login-btn').prop('disabled', false);
+                } else {
+                    $('#login-btn').prop('disabled', true);
+                }
+            break;
+
+            case "Register":
+                if (isUsernameFilled && isPasswordFilled && isPasswordConfirmFilled && isDisplaynameFilled) {
+                    $('#login-btn').prop('disabled', false);
+                } else {
+                    $('#login-btn').prop('disabled', true);
+                }
+            break;
+
+            default:
+            break;
+        }
+    }
+    // if ($('#login-btn').text(); == "Login") {
+    function checkInput(input) {
+        if (input.value === "") {
+            input.style.border = "1px solid #FF0000";
+        } else {
+            input.style.border = "1px solid #CCCCCC";
+        }
+
    }
 </script>

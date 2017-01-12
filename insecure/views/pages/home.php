@@ -81,7 +81,7 @@
                 '<div class="row padding-left-20 padding-right-20">
                 <div class="col-xs-4 col-md-4">
                   <img class="img-circle" src="' . $listing->icon .'" alt="Generic placeholder image" width="120" height="120">
-                  <h4>' . $listing->displayname . '</h4>
+                  <h4 style="color:' . $listing->profileColor . ';">' . $listing->displayname . '</h4>
                   <p>' . $listing->latestPost . '</p>
                   <p><a class="btn btn-default" href="' . $listing->homepage .'" role="button">Homepage &raquo;</a></p>
                 </div>';
@@ -89,7 +89,7 @@
                 echo
                 '<div class="col-xs-4 col-md-4">
                   <img class="img-circle" src="' . $listing->icon .'" alt="Generic placeholder image" width="120" height="120">
-                  <h4>' . $listing->displayname . '</h4>
+                  <h4 style="color:' . $listing->profileColor . ';">' . $listing->displayname . '</h4>
                   <p>' . $listing->latestPost . '</p>
                   <p><a class="btn btn-default" href="' . $listing->homepage .'" role="button">Homepage &raquo;</a></p>
                 </div>';
@@ -97,7 +97,7 @@
                 echo
                     '<div class="col-xs-4 col-md-4">
                       <img class="img-circle" src="' . $listing->icon .'" alt="Generic placeholder image" width="120" height="120">
-                      <h4>' . $listing->displayname . '</h4>
+                      <h4 style="color:' . $listing->profileColor . ';">' . $listing->displayname . '</h4>
                       <p>' . $listing->latestPost . '</p>
                       <p><a class="btn btn-default" href="' . $listing->homepage .'" role="button">Homepage &raquo;</a></p>
                     </div>
