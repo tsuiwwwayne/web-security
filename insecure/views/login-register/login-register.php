@@ -13,7 +13,7 @@
                      <div class="row">
                         <label class="control-label col-sm-3" for="username">Username:</label>
                         <div class="col-sm-8">
-                           <input type="text" class="form-control" name="username" placeholder="Enter username" required>
+                           <input type="text" class="form-control" name="username" placeholder="Enter username" onblur="checkIfEmpty('username')" required>
                         </div>
                      </div>
                   </div>
@@ -42,7 +42,7 @@
                         <div class="row">
                            <label class="control-label col-sm-3" for="displayname">Display name:</label>
                            <div class="col-sm-8">
-                              <input type="text" class="form-control" name="displayname" placeholder="Enter display name">
+                              <input type="text" class="form-control" name="displayname" placeholder="Enter display name" onblur="checkIfEmpty('displayname')">
                            </div>
                         </div>
                      </div>

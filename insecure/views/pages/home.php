@@ -71,20 +71,41 @@
 ================================================ -->
 
 <div class="container marketing">
-  <div class="row">
+
     <?php
       if(!empty($listings)) {
+        $counter = 0;
         foreach($listings as $listing) {
-            echo
-            '<div class="col-xs-6 col-md-4">
-              <img class="img-circle" src="' . $listing->icon .'" alt="Generic placeholder image" width="140" height="140">
-              <h2>' . $listing->displayname . '</h2>
-              <p>' . $listing->latestPost . '</p>
-              <p><a class="btn btn-default" href="' . $listing->homepage .'" role="button">Homepage &raquo;</a></p>
-            </div>';
+            if ($counter % 3 == 0) { // First out of 3 listing
+                echo
+                '<div class="row">
+                <div class="col-xs-6 col-md-4">
+                  <img class="img-circle" src="' . $listing->icon .'" alt="Generic placeholder image" width="140" height="140">
+                  <h2>' . $listing->displayname . '</h2>
+                  <p>' . $listing->latestPost . '</p>
+                  <p><a class="btn btn-default" href="' . $listing->homepage .'" role="button">Homepage &raquo;</a></p>
+                </div>';
+            } elseif ($counter % 3 == 1) { // Second out of 3 listing
+                echo
+                '<div class="col-xs-6 col-md-4">
+                  <img class="img-circle" src="' . $listing->icon .'" alt="Generic placeholder image" width="140" height="140">
+                  <h2>' . $listing->displayname . '</h2>
+                  <p>' . $listing->latestPost . '</p>
+                  <p><a class="btn btn-default" href="' . $listing->homepage .'" role="button">Homepage &raquo;</a></p>
+                </div>';
+            } elseif ($counter % 3 == 2) { // Third out of 3 listing
+                echo
+                    '<div class="col-xs-6 col-md-4">
+                      <img class="img-circle" src="' . $listing->icon .'" alt="Generic placeholder image" width="140" height="140">
+                      <h2>' . $listing->displayname . '</h2>
+                      <p>' . $listing->latestPost . '</p>
+                      <p><a class="btn btn-default" href="' . $listing->homepage .'" role="button">Homepage &raquo;</a></p>
+                    </div>
+                </div>'; // end of row
+            }
+            $counter++;
         }
       }
     ?>
-  </div><!-- /.row -->
 
 </div><!-- /.container -->
