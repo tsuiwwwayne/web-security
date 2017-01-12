@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="container below-static-navbar padding-top-20">
     <div class="panel panel-default" style="margin-top: 30px;">
       <div class="panel-heading">Edit your profile</div>
