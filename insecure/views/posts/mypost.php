@@ -8,7 +8,7 @@
             }
             else{
               foreach($posts as $post) {
-                echo '<div class = "row" style="padding:10px,0,10px,0;"><div class="col-md-10">'. $post->id . ' ' . $post->content . '</div>' . '<div class="col-md-2" style="text-align:right"><a href="#" style="pull-right" class="btn btn-primary"><span class="glyphicon glyphicon-trash"></span></a></div></div><hr>';
+                 echo '<div class = "row" style="padding:10px,0,10px,0;"><div class="col-md-10">'. $post->id . ' ' . $post->content . '</div><div class="col-md-2" style="text-align:right"><a href="?controller=posts&action=delete&id=' . $post->id . '" style="pull-right" class="btn btn-primary"><span class="glyphicon glyphicon-trash"></span></a></div></div><hr>';
               }
             }
           ?>
