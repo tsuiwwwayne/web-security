@@ -4,14 +4,17 @@
 
   // Start PHP session.
   session_start();
-
-  // CSRF token generation
+  
   if (WEB_SAFE) {
+    // CSRF token generation
     if (empty($_SESSION['token'])) {
       $_SESSION['token'] = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
     }
+    // Turn off all error reporting
+    error_reporting(0);
   } else {
     unset($_SESSION['token']);
+    error_reporting(E_ALL);
   }
 
   // Database singleton.
