@@ -49,9 +49,15 @@
 
       $content = $_REQUEST['content'];
 
-      // Sanitize incoming content.
       if (WEB_SAFE) {
+        // Sanitize incoming content.
         $content = htmlspecialchars($content);
+
+        // Check CSRF token
+        if (empty($_REQUEST['token']) || !hash_equals($_SESSION['token'], $_REQUEST['token'])) {
+          // Invalid CSRF token...
+          return call('pages', 'error');
+        }
       }
 
       $success = Post::add($user_id, $content);
