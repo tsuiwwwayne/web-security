@@ -38,15 +38,14 @@
                        'user' =>  ['index', 'login', 'logout', 'updateProfile', 'register'],
                        'upload' =>  ['index','uploadfile']);
 
-  // Controllers in this array require that a valid user session be present (i.e. $_SESSION['user_id'] exists)
-  $controllers_authenticated = array();
+  if (!WEB_SAFE) {
+    call($controller, $action);
+    return;
+  }
+
   if (array_key_exists($controller, $controllers)) {
     if (in_array($action, $controllers[$controller])) {
       call($controller, $action);
-    // } else if (in_array($action, $controllers_authenticated[$controller])) {
-    //   if (isset($_SESSION['user_id'])) {
-    //     call($controller, $action);
-    //   }
     } else {
       call('pages', 'error');
     }

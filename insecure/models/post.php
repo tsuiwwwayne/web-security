@@ -47,6 +47,11 @@
         $req = $db->prepare('SELECT * FROM posts where user_id = :user_id ORDER BY date_created DESC LIMIT 1');
         $req->execute(array('user_id' => $user_id));
         $post = $req->fetch();
+
+        if (WEB_SAFE) {
+          
+        }
+
         if ($post && count($post) > 0) {
            return new Post($post['id'], $post['user_id'], $post['content']);
         } else {

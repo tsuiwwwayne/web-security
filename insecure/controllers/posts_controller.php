@@ -66,7 +66,6 @@
       }
 
       if (!isset($user_id) || !isset($_REQUEST['id'])) {
-        echo "not set";
         return call('pages', 'error');
       }
 
