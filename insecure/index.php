@@ -4,7 +4,7 @@
 
   // Start PHP session.
   session_start();
-  
+
   if (WEB_SAFE) {
     // CSRF token generation
     if (empty($_SESSION['token'])) {

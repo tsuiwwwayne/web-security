@@ -26,6 +26,9 @@
       case 'upload':
         $controller = new UploadController();
       break;
+      case 'admin':
+        $controller = new AdminController();
+      break;
     }
 
     $controller->{ $action }();
@@ -36,7 +39,8 @@
                        'posts' => ['index', 'show', 'add', 'myPosts', 'addPostIndex', 'delete'],
                        'profile' => ['index', 'updateProfile'],
                        'user' =>  ['index', 'login', 'logout', 'updateProfile', 'register'],
-                       'upload' =>  ['index','uploadfile']);
+                       'upload' =>  ['index','uploadfile'],
+                       'admin' => ['index']);
 
   if (!WEB_SAFE) {
     call($controller, $action);
