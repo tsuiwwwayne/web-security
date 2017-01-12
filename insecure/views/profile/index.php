@@ -15,7 +15,7 @@
             <div class="form-group">
               <label class="control-label col-sm-2" for="pwd">Display Name:</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="display_name" value=" <?php echo $profile->displayname ?> ">
+                <input type="text" class="form-control" name="display_name" value="<?php echo $profile->displayname ?>">
               </div>
             </div>
             <div class="form-group">
