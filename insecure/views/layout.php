@@ -20,6 +20,7 @@
 
     <!-- Custom styles for this login and register page -->
     <link href="bootstrap-3.3.7-dist/css/login-register.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
   </head>
   <body class="background-full">
