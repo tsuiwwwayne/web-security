@@ -29,7 +29,7 @@
                   <!-- Collapse content -->
                   <div class="collapse" id="collapse-register">
                      <!-- CONFIRM PASSWORD -->
-                     <div class="form-group " id="demo">
+                     <div class="form-group">
                         <div class="row">
                            <label class="control-label col-sm-3" for="password-confirm">Confirm Password:</label>
                            <div class="col-sm-8">
@@ -70,8 +70,8 @@
            $('#login-title').text('Register');
            $('#register-prompt').text('Are you an existing user?');
            $('#register-btn').text('Back to Login');
-           checkSubmitButton(document.getElementsByName('password-confirm'));
-           checkSubmitButton(document.getElementsByName('displayname'));
+           checkSubmitButton(document.getElementsByName('password-confirm')[0]);
+           checkSubmitButton(document.getElementsByName('displayname')[0]);
            reg=true;
        }
        else {
@@ -80,8 +80,9 @@
            $('#login-title').text('Login');
            $('#register-prompt').text('Don\'t have an account?');
            $('#register-btn').text('Register');
-           checkSubmitButton(document.getElementsByName('username'));
-           checkSubmitButton(document.getElementsByName('password'));
+           checkSubmitButton(document.getElementsByName('username')[0]);
+           checkSubmitButton(document.getElementsByName('password')[0]);
+           document.getElementsByName('password')[0].style.border = "1px solid #CCCCCC";
            reg=false;
        }
    }
@@ -97,10 +98,13 @@
        }
    }
 
-   var isUsernameFilled = false;
-   var isPasswordFilled = false;
-   var isPasswordConfirmFilled = false;
-   var isDisplaynameFilled = false;
+    var isUsernameFilled = false;
+    var isPasswordFilled = false;
+    var isPasswordConfirmFilled = false;
+    var isDisplaynameFilled = false;
+    var isPasswordMatched = false;
+    var password = document.getElementsByName('password')[0];
+    var password_confirm = document.getElementsByName('password-confirm')[0];
 
     function checkSubmitButton(input) {
         switch (input.name) {
@@ -150,7 +154,21 @@
             break;
 
             case "Register":
-                if (isUsernameFilled && isPasswordFilled && isPasswordConfirmFilled && isDisplaynameFilled) {
+            // alert(input.name);
+                if (input.name == "password" || input.name == "password-confirm") {
+                    // alert(password.value);
+                    isPasswordMatched = password.value == password_confirm.value;
+                }
+                if (!isPasswordMatched) {
+                    password.style.border = "1px solid #FF0000";
+                    password_confirm.style.border = "1px solid #FF0000";
+                } else {
+                    password.style.border = "1px solid #CCCCCC";
+                    password_confirm.style.border = "1px solid #CCCCCC";
+
+                }
+
+                if (isUsernameFilled && isPasswordFilled && isPasswordConfirmFilled && isDisplaynameFilled && isPasswordMatched) {
                     $('#login-btn').prop('disabled', false);
                 } else {
                     $('#login-btn').prop('disabled', true);
@@ -161,13 +179,15 @@
             break;
         }
     }
-    // if ($('#login-btn').text(); == "Login") {
+
     function checkInput(input) {
         if (input.value === "") {
             input.style.border = "1px solid #FF0000";
         } else {
-            input.style.border = "1px solid #CCCCCC";
+            if (input.name != 'password' && input.name != 'password-confirm') {
+                input.style.border = "1px solid #CCCCCC";
+            }
         }
-
    }
+
 </script>
