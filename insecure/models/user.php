@@ -77,5 +77,19 @@
         return $list;
     }
 
+    public static function isUserAdmin($userID) {
+        $db = Db::getInstance();
+        $req = $db->prepare('SELECT role FROM users WHERE id = ?');
+        $req->execute(array($userID));
+
+        $user = $req->fetch();  // Returns false on failure.
+
+        if ($user && count($user) > 0 && $user['role'] == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
   }
 ?>

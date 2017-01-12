@@ -30,6 +30,9 @@
       $user = User::login($username, $password);
       if ($user) {
         $_SESSION['user_id'] = $user->id;
+        if (User::isUserAdmin($_SESSION['user_id'])) {
+            $_SESSION['isAdmin'] = true;
+        }
         // Redirect
         require_once('utilities.php');
         Utilities::redirect("?");
@@ -41,6 +44,7 @@
 
     public function logout() {
       unset($_SESSION['user_id']);
+      unset($_SESSION['isAdmin']);
       // Return to home page.
       // Redirect
       require_once('utilities.php');
