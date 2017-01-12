@@ -14,7 +14,7 @@
         <div class="carousel-caption">
           <h1>UCL Group E</h1>
           <p>Team project investigating the vulnerabilities of web security, using HTML, CSS, JavaScript and PHP.</p>
-          <p><a class="btn btn-lg btn-default" href="https://github.com/tsuiwwwayne/web-security" role="button">GitHub</a></p>
+          <p><a class="btn btn-lg btn-default" href="https://github.com/tsuiwwwayne/web-security" role="button"><img src="assets/img/git.png" height="30" width="30"/><span class="margin-left-10 margin-right-10" style="vertical-align: middle;">GitHub</span></a></p>
         </div>
       </div>
     </div>
