@@ -40,10 +40,13 @@
               <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                   <?php if(isset($_SESSION['user_id'])): ?>
-                  <li><a href="?controller=posts&action=myPosts">My Posts</a></li>
-                  <li><a href="?controller=posts&action=addPostIndex">Add Post</a></li>
-                  <li><a href="?controller=profile&action=index">Profile</a></li>
-                  <li><a href="?controller=upload&action=index">Upload</a></li>
+                      <li><a href="?controller=posts&action=myPosts">My Posts</a></li>
+                      <li><a href="?controller=posts&action=addPostIndex">Add Post</a></li>
+                      <li><a href="?controller=profile&action=index">Profile</a></li>
+                      <li><a href="?controller=upload&action=index">Upload</a></li>
+                      <?php if(isset($_SESSION['isAdmin'])): ?>
+                          <li><a href="?controller=admin&action=index">Admin Panel</a></li>
+                      <?php endif ?>
                   <?php else: ?>
                   <?php endif ?>
                 </ul>

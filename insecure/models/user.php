@@ -13,8 +13,13 @@
     // Returns new User object on success, false on failure.
     public static function login($username, $password) {
         $db = Db::getInstance();
-        $req = $db->prepare('SELECT id, display_name FROM users WHERE username = ? AND password = ?');
-        $req->execute(array($username, $password));
+        if (WEB_SAFE) {
+            $req = $db->prepare('SELECT id, display_name FROM users WHERE username = ? AND password = ?');
+            $req->execute(array($username, $password));
+        } else {
+            $sql = "SELECT id, display_name FROM users WHERE username = '$username' AND password = '$password'";
+            $req = $db->query($sql);
+        }
 
         $user = $req->fetch();  // Returns false on failure.
 
@@ -70,6 +75,20 @@
         }
 
         return $list;
+    }
+
+    public static function isUserAdmin($userID) {
+        $db = Db::getInstance();
+        $req = $db->prepare('SELECT role FROM users WHERE id = ?');
+        $req->execute(array($userID));
+
+        $user = $req->fetch();  // Returns false on failure.
+
+        if ($user && count($user) > 0 && $user['role'] == 1) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
   }

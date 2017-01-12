@@ -7,6 +7,9 @@
            	<label class="control-label col-sm-2" for="pwd">Content:</label>
             <div class="col-sm-10">
               <textarea class="form-control" rows="5"  name="content"></textarea><br>
+              <?php if(isset($_SESSION['token'])): ?>
+                <input type="hidden" name="token" value="<?php echo $_SESSION['token'] ?>">
+              <?php endif ?>
               <button type="submit" class="btn btn-success">Add Post</button>
             </div>
           </div>
