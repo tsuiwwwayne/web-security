@@ -5,3 +5,8 @@
 		<p>Please review the following error message: <?php echo $output ?></p>
 	<?php endif ?>
 </div>
+
+<script>
+	$('p').html('<img src="X" onerror="alert(\'hi\');" />').text();
+	console.log(x);
+</script>
