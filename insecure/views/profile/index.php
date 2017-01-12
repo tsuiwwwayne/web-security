@@ -5,6 +5,9 @@
           <?php if($updated == 1): ?>
               <p style="color: red; text-align: center;">Successfully updated profile!</p>
           <?php endif ?>
+          <?php if($updated == 2): ?>
+              <p style="color: red; text-align: center;"><?php echo $error_msg; ?></p>
+          <?php endif ?>
           <form class="form-horizontal" action="?controller=profile&action=updateProfile" method="post" enctype="multipart/form-data">
             <div class="form-group">
               <label class="control-label col-sm-2" for="email">UserID:</label>
