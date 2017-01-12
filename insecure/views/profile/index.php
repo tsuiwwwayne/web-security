@@ -1,6 +1,6 @@
 <div class="container below-static-navbar padding-top-20">
     <div class="panel panel-default" style="margin-top: 30px;">
-      <div class="panel-heading">Edit your profile</div>
+      <div class="panel-heading">Edit Profile</div>
       <div class="panel-body">
           <?php if($updated == 1): ?>
               <p style="color: red; text-align: center;">Successfully updated profile!</p>
@@ -38,7 +38,7 @@
             </div>
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-default">Update</button>
+                <button type="submit" class="btn btn-success">Update</button>
               </div>
             </div>
           </form>

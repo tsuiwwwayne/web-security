@@ -1,6 +1,6 @@
 <div class="container below-static-navbar padding-top-20">
     <div class="panel panel-default">
-      <div class="panel-heading">Select a file to upload to your account</div>
+      <div class="panel-heading">Select a file to upload</div>
       <div class="panel-body">
           <form class="form-horizontal" action="?controller=upload&action=uploadfile" method="post" enctype="multipart/form-data">
             <div class="input-group">
@@ -12,7 +12,7 @@
                 <input type="text" class="form-control" readonly>
             </div>
             <br>
-            <button type="submit" class="btn btn-default">Upload</button>
+            <button type="submit" class="btn btn-success">Upload</button>
           </form>
       </div>
     </div>

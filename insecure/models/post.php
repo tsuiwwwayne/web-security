@@ -44,7 +44,8 @@
         $list = [];
         $db = Db::getInstance();
         $user_id = intval($user_id);
-        $req = $db->query('SELECT * FROM posts ORDER BY date_created DESC LIMIT 1');
+        $req = $db->prepare('SELECT * FROM posts where user_id = :user_id ORDER BY date_created DESC LIMIT 1');
+        $req->execute(array('user_id' => $user_id));
         $post = $req->fetch();
 
         if (WEB_SAFE) {

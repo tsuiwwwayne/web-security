@@ -23,7 +23,11 @@
             $req->execute(array('id' => $id));
             $user = $req->fetch();
             $latestPost = Post::getPostLastForUser($id);
-            $listing = new Listing($user['id'], $user['display_name'], $user['icon'], $user['home_page'], $user['profile_color'], $latestPost->content);
+            $lastestPostContent = "";
+            if ($latestPost) {
+                $lastestPostContent = $latestPost->content;
+            }
+            $listing = new Listing($user['id'], $user['display_name'], $user['icon'], $user['home_page'], $user['profile_color'], $lastestPostContent);
             return $listing;
         }
 
