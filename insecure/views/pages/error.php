@@ -6,4 +6,4 @@
         <p>Please review the following error message: <?php echo $output ?></p>
         <?php endif ?>
     </div>
-</div>
+</div>    
