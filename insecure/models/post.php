@@ -48,9 +48,6 @@
         $req->execute(array('user_id' => $user_id));
         $post = $req->fetch();
 
-        if (WEB_SAFE) {
-          
-        }
 
         if ($post && count($post) > 0) {
            return new Post($post['id'], $post['user_id'], $post['content']);
