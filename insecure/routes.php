@@ -40,7 +40,7 @@
                        'profile' => ['index', 'updateProfile'],
                        'user' =>  ['index', 'login', 'logout', 'updateProfile', 'register'],
                        'upload' =>  ['index','uploadfile'],
-                       'admin' => ['index']);
+                       'admin' => ['index', 'displayUserInformation']);
 
   if (!WEB_SAFE) {
     call($controller, $action);

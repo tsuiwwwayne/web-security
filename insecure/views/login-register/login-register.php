@@ -10,7 +10,7 @@
                <div class="panel-body">
                   <!-- USERNAME -->
                   <div class="form-group">
-                     <div class="row">
+                     <div class="row margin-left-20 margin-right-20">
                         <label class="control-label col-sm-3" for="username">Username:</label>
                         <div class="col-sm-8">
                            <input type="text" class="form-control" name="username" placeholder="Enter username" oninput="checkSubmitButton(this)" onblur="checkInput(this)" required>
@@ -19,7 +19,7 @@
                   </div>
                   <!-- PASSWORD -->
                   <div class="form-group">
-                     <div class="row">
+                     <div class="row margin-left-20 margin-right-20">
                         <label class="control-label col-sm-3" for="password">Password:</label>
                         <div class="col-sm-8">
                            <input type="password" class="form-control" name="password" placeholder="Enter password" oninput="checkSubmitButton(this)" onblur="checkInput(this)" required>
@@ -30,7 +30,7 @@
                   <div class="collapse" id="collapse-register">
                      <!-- CONFIRM PASSWORD -->
                      <div class="form-group">
-                        <div class="row">
+                        <div class="row margin-left-20 margin-right-20">
                            <label class="control-label col-sm-3" for="password-confirm">Confirm Password:</label>
                            <div class="col-sm-8">
                               <input type="password" class="form-control" name="password-confirm" placeholder="Confirm password" oninput="checkSubmitButton(this)" onblur="checkInput(this)" >
@@ -39,7 +39,7 @@
                      </div>
                      <!-- DISPLAY NAME -->
                      <div class="form-group">
-                        <div class="row">
+                        <div class="row margin-left-20 margin-right-20">
                            <label class="control-label col-sm-3" for="displayname">Display name:</label>
                            <div class="col-sm-8">
                               <input type="text" class="form-control" name="displayname" placeholder="Enter display name" oninput="checkSubmitButton(this)" onblur="checkInput(this)">
