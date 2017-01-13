@@ -12,9 +12,21 @@
     }
     // Turn off all error reporting
     error_reporting(0);
+
+    // Session inactivity handling
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
+      // last request was more than 30 minutes ago
+      session_unset();     // unset $_SESSION variable for the run-time 
+      session_destroy();   // destroy session data in storage
+    }
+    $_SESSION['LAST_ACTIVITY'] = time();
+    setcookie(session_name(),session_id(),time()+0);
+    
   } else {
     unset($_SESSION['token']);
     error_reporting(E_ALL);
+    // Let cookie last for a long time (instead of being a session cookie)
+    setcookie(session_name(),session_id(),time()+6000);
   }
 
   // Database singleton.

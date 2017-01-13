@@ -2,11 +2,17 @@
   class PostsController {
     public function index() {
       // we store all the posts in a variable
+      if (!isset($_SESSION['user_id'])) {
+          return call('pages', 'error');
+      }
       $posts = Post::all();
       require_once('views/posts/index.php');
     }
 
     public function myPosts() {
+      if (!isset($_SESSION['user_id'])) {
+          return call('pages', 'error');
+      }
       $posts = Post::getPostsForUser($_SESSION['user_id']);
       require_once('views/posts/mypost.php');
     }

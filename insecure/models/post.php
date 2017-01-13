@@ -58,11 +58,15 @@
 
     public static function find($id) {
       $db = Db::getInstance();
-      // we make sure $id is an integer
-      $id = intval($id);
-      $req = $db->prepare('SELECT posts.id, users.display_name, posts.content FROM posts JOIN users ON posts.user_id = users.id WHERE posts.id = :id');
-      // the query was prepared, now we replace :id with our actual $id value
-      $req->execute(array('id' => $id));
+      if (WEB_SAFE) {
+        // Make sure $id is an integer
+        $id = intval($id);
+        $req = $db->prepare('SELECT posts.id, users.display_name, posts.content FROM posts JOIN users ON posts.user_id = users.id WHERE posts.id = :id');
+        $req->execute(array('id' => $id));
+      } else {
+        $sql = "SELECT posts.id, users.display_name, posts.content FROM posts JOIN users ON posts.user_id = users.id WHERE posts.id = $id";
+        $req = $db->query($sql);
+      }
       $post = $req->fetch();
 
       return new Post($post['id'], $post['display_name'], $post['content']);
