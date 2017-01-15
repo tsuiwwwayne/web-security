@@ -48,9 +48,9 @@
       <img class="third-slide" src="assets/img/carousel-cover-3.png" alt="Third slide">
       <div class="container">
         <div class="carousel-caption">
-          <h1>Think of something guys</h1>
-          <p>Put some content here please</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse something</a></p>
+          <h1>Project Video</h1>
+          <p>Click on the button below to watch our video describing the potential vulnerabilities of this web application</p>
+          <p><a class="btn btn-lg btn-primary" href="https://www.youtube.com/watch?v=a-UOxkr9EPg" role="button"><i class="fa fa-youtube-play " aria-hidden="true"></i> Video</a></p>
         </div>
       </div>
     </div>
