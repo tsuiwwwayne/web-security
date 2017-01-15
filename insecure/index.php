@@ -19,7 +19,7 @@
       unset($_SESSION['user_id']);
     }
     $_SESSION['LAST_ACTIVITY'] = time();
-    setcookie(session_name(),session_id(),time()+0);
+    setcookie(session_name(),session_id(),0);
     
   } else {
     unset($_SESSION['token']);
