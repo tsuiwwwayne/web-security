@@ -42,7 +42,7 @@
         $displayName = htmlspecialchars($_POST["display_name"]);
         $icon = htmlspecialchars($_POST["icon"]);
         $homepage = htmlspecialchars($_POST["homepage"]);
-        $profile_colour = $_POST["profile_colour"];
+        $profile_colour = htmlspecialchars($_POST["profile_colour"]);
         // If not valid url
         if(filter_var($homepage, FILTER_VALIDATE_URL,FILTER_FLAG_PATH_REQUIRED) === false){
           $homepage = '';
