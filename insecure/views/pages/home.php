@@ -12,7 +12,7 @@
       <img class="first-slide" src="assets/img/carousel-cover-1.png" alt="First slide">
       <div class="container">
         <div class="carousel-caption">
-          <h1>UCL Group E</h1>
+          <h1>UCL COMP205P Group E</h1>
           <p>Team project investigating the vulnerabilities of web security, using HTML, CSS, JavaScript and PHP.</p>
           <p><a class="btn btn-lg btn-default" href="https://github.com/tsuiwwwayne/web-security" role="button"><img src="assets/img/git.png" height="30" width="30"/><span class="margin-left-10 margin-right-10" style="vertical-align: middle;">GitHub</span></a></p>
         </div>
@@ -49,7 +49,7 @@
       <div class="container">
         <div class="carousel-caption">
           <h1>Project Video</h1>
-          <p>Click on the button below to watch our video describing the potential vulnerabilities of this web application</p>
+          <p>Watch our video describing the potential vulnerabilities of this web application.</p>
           <p><a class="btn btn-lg btn-danger" href="https://www.youtube.com/watch?v=a-UOxkr9EPg" role="button"><i class="fa fa-youtube-play " aria-hidden="true"></i> Video</a></p>
         </div>
       </div>
