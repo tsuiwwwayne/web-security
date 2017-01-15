@@ -65,13 +65,18 @@
         if (!ctype_alnum($username)) {
             $errorMessage = "Only alphanumeric characters allowed for Username";
             require_once('views/login-register/login-register.php');
+            return;
         }
 
         // Enforce no special characters in display name.
         $displayname = htmlspecialchars($displayname);
       }
 
-      User::registerUser($username, $password, $displayname);
+      $_SESSION['user_id'] = User::registerUser($username, $password, $displayname);
+
+      // Redirect
+      require_once('utilities.php');
+      Utilities::redirect("?");
     }
   }
 ?>

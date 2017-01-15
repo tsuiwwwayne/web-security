@@ -62,6 +62,9 @@
         $db = Db::getInstance();
         $req = $db->prepare('INSERT INTO users (username, password, display_name, role) VALUES (?, ?, ?, 2)');
         $req->execute(array($username, $password, $displayname));
+
+        $id = $db->lastInsertId();
+        return($id);
     }
 
     public static function allUserIDs() {
