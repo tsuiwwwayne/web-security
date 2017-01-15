@@ -78,7 +78,7 @@
           $req = $db->prepare('INSERT INTO posts (user_id, date_created, content) VALUES (?, NOW(), ?)');
           $req->execute(array($userID, $content));
         } else {
-          $sql = "INSERT INTO posts (user_id, date_created, content) VALUES ($userID, NOW(), '$content')";
+          $sql = "INSERT INTO posts (user_id, date_created, content) VALUES ('$userID', NOW(), '$content')";
           $req = $db->query($sql);
         }
         // INSERT INTO `posts` (`id`, `user_id`, `date_created`, `content`) VALUES (NULL, '2', '2017-01-10 08:37:11', 'This is another piece of content!');
