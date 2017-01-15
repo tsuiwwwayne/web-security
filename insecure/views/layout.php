@@ -29,6 +29,9 @@
 
     <!-- Custom styles for this login and register page -->
     <link href="bootstrap-3.3.7-dist/css/login-register.css" rel="stylesheet" type="text/css">
+    
+    <!-- Font Awesome -->
+    <script src="https://use.fontawesome.com/60e89a29b6.js"></script>
 
   </head>
   <body class="background-full">
